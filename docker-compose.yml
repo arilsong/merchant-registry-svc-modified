@@ -35,7 +35,7 @@ services:
       - RABBITMQ_REPLY_QUEUE=registry_reply_acquirer
 
       - RECAPTCHA_SECRET_KEY=reCAPTCHA_SECRET_KEY
-      - RECAPTCHA_ENABLED=true
+      - RECAPTCHA_ENABLED=false
 
       - SENDGRID_API_KEY=SENDGRID_API_KEY
       - SENDER_EMAIL=test@email.com
@@ -53,8 +53,8 @@ services:
     environment:
       - VITE_HOST=0.0.0.0
       - VITE_PORT=5173
-      - VITE_API_URL=http://127.0.0.1:5555/api/v1
-      - VITE_RECAPTCHA_SITE_KEY=reCAPTCHA_SITE_KEY
+      - VITE_API_URL=http://34.53.208.240:5555/api/v1
+      - VITE_RECAPTCHA_SITE_KEY=
 
     ports:
       - "5173:5173"

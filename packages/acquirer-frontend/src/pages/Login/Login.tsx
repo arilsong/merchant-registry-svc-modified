@@ -148,11 +148,11 @@ const Login = () => {
               </Link>
             </HStack>
 
-            <ReCAPTCHA
+            {recaptchaSiteKey && <ReCAPTCHA
               ref={recaptchaRef}
               sitekey={recaptchaSiteKey}
               onChange={onRecaptchaChange}
-            />
+            />}
 
             <CustomButton type='submit' size='md' mt='8' isLoading={login.isPending}>
               Log In
