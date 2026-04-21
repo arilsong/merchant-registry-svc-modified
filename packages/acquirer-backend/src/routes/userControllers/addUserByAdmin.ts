@@ -8,7 +8,7 @@ import { PortalRoleEntity } from '../../entity/PortalRoleEntity'
 import * as z from 'zod'
 import { AuditActionType, AuditTrasactionStatus, PortalUserStatus, PortalUserType } from 'shared-lib'
 import { EmailVerificationTokenEntity } from '../../entity/EmailVerificationToken'
-import { sendVerificationEmail } from '../../utils/sendGrid'
+// import { sendVerificationEmail } from '../../utils/sendGrid' // Disabled: No SendGrid API key
 import { DFSPEntity } from '../../entity/DFSPEntity'
 import { type AuthRequest } from '../../types/express'
 import { readEnv } from '../../setup/readEnv'
@@ -211,12 +211,7 @@ export async function addUser (req: AuthRequest, res: Response) {
         email: newUser.email
       })
 
-      /* // Send Email with token
-      try {
-        await sendVerificationEmail(newUser.email, token, roleObj.name)
-      } catch (emailError) {
-        logger.error("SendGrid email failed (non-fatal): %o", emailError)
-      } */
+      // Email sending disabled - no SendGrid API key configured
     })
 
     res.status(201).send({ message: 'User created. And Verification Email Sent', data: newUser })
