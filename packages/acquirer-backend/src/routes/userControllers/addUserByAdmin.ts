@@ -211,12 +211,12 @@ export async function addUser (req: AuthRequest, res: Response) {
         email: newUser.email
       })
 
-      // Send Email with token
+      /* // Send Email with token
       try {
         await sendVerificationEmail(newUser.email, token, roleObj.name)
       } catch (emailError) {
         logger.error("SendGrid email failed (non-fatal): %o", emailError)
-      }
+      } */
     })
 
     res.status(201).send({ message: 'User created. And Verification Email Sent', data: newUser })
