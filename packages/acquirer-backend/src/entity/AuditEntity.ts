@@ -28,10 +28,10 @@ export class AuditEntity {
   @Column({ nullable: true })
     transaction_status!: AuditTrasactionStatus
 
-  @Column({ nullable: true, length: 4096 })
+  @Column({ type: 'longtext', nullable: true }) // Alterado de string/length para longtext
     old_value!: string
 
-  @Column({ nullable: true, length: 4096 })
+  @Column({ type: 'longtext', nullable: true }) // Alterado de string/length para longtext
     new_value!: string
 
   @ManyToOne(() => PortalUserEntity, portalUser => portalUser.audits, { onDelete: 'SET NULL' })
